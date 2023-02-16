@@ -23,18 +23,19 @@
         <div class="col-lg-6 mb-5 mb-lg-0">
           <div class="card">
             <div class="card-body py-5 px-md-5">
-              <form>
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                 <!-- 2 column grid layout with text inputs for the first and last names -->
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
                       <input
                         type="text"
-                        id="form3Example1"
+                        formControlName="FullName"
+                        id="full_name"
                         class="form-control"
                       />
                       <label class="form-label" for="form3Example1"
-                        >First name</label
+                        >Full name</label
                       >
                     </div>
                   </div>
@@ -42,11 +43,12 @@
                     <div class="form-outline">
                       <input
                         type="text"
-                        id="form3Example2"
+                        formControlName="UserName"
+                        id="user_name"
                         class="form-control"
                       />
                       <label class="form-label" for="form3Example2"
-                        >Last name</label
+                        >User name</label
                       >
                     </div>
                   </div>
@@ -54,9 +56,26 @@
 
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3" class="form-control" />
+                  <input
+                    type="email"
+                    formControlName="EmailId"
+                    id="email"
+                    class="form-control"
+                  />
                   <label class="form-label" for="form3Example3"
                     >Email address</label
+                  >
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input
+                    type="email"
+                    id="phone_no"
+                    formControlName="PhoneNo"
+                    class="form-control"
+                  />
+                  <label class="form-label" for="form3Example3"
+                    >Phone No.</label
                   >
                 </div>
 
@@ -64,7 +83,8 @@
                 <div class="form-outline mb-4">
                   <input
                     type="password"
-                    id="form3Example4"
+                    formControlName="Password"
+                    id="password"
                     class="form-control"
                   />
                   <label class="form-label" for="form3Example4">Password</label>
