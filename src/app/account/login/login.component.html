@@ -9,35 +9,60 @@
         />
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
+        <form
+          [formGroup]="loginForm"
+          (ngSubmit)="onSubmit()"
+          class="needs-validation"
+          novalidate
+        >
           <!-- Email input -->
           <div class="form-outline mb-4">
+            <label class="form-label" for="form3Example3">User Name</label>
             <input
               type="email"
               id="form3Example3"
-              class="form-control form-control-lg"
+              class="form-control form-control-md"
               placeholder="Enter user name"
               formControlName="username"
+              required
             />
-            <label class="form-label" for="form3Example3">User Name</label>
+            <span
+              class="text-danger"
+              *ngIf="(loginFormControl['username'].touched || submitted) &&             
+                loginFormControl['username'].errors?.['required']
+              "
+            >
+              User Name is required
+            </span>
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-3">
+            <label class="form-label" for="form3Example4">Password</label>
             <input
               type="password"
               id="form3Example4"
-              class="form-control form-control-lg"
+              class="form-control form-control-md"
               placeholder="Enter password"
               formControlName="password"
+              required
+              aria-required="true"
             />
-            <label class="form-label" for="form3Example4">Password</label>
+            <span
+              class="text-danger"
+              *ngIf="(loginFormControl['username'].touched || submitted) &&             
+                loginFormControl['username'].errors?.['required']
+              "
+            >
+              Password is required
+            </span>
           </div>
 
-          <div class="text-center text-lg-start mt-4 pt-2">
+          <!--  [disabled]="!loginForm.valid" -->
+          <div class="text-center text-md-start">
             <button
               type="submit"
-              class="btn btn-primary btn-lg"
+              class="btn btn-primary btn-md"
               style="padding-left: 2.5rem; padding-right: 2.5rem"
             >
               Login

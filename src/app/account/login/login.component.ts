@@ -10,6 +10,7 @@ import { AccountService } from '../account.service';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  submitted = false;
   constructor(private accountService: AccountService, private router: Router) {}
 
   ngOnInit(): void {
@@ -17,21 +18,26 @@ export class LoginComponent implements OnInit {
   }
   createLoginForm() {
     this.loginForm = new FormGroup({
-      username: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
+      username: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required),
     });
+  }
+  get loginFormControl() {
+    return this.loginForm.controls;
   }
 
   onSubmit() {
-    console.log(this.loginForm?.value);
+    this.submitted = true;
 
-    this.accountService.login(this.loginForm?.value).subscribe(
-      () => {
-        this.router.navigateByUrl('/home');
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    if (this.loginForm.valid) {
+      this.accountService.login(this.loginForm?.value).subscribe(
+        () => {
+          this.router.navigateByUrl('/dashboard');
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
   }
 }

@@ -10,6 +10,7 @@ import { AccountService } from '../account.service';
 })
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
+  submitted = false;
 
   constructor(private accountService: AccountService, private router: Router) {}
 
@@ -20,20 +21,28 @@ export class RegisterComponent implements OnInit {
     this.registerForm = new FormGroup({
       FullName: new FormControl('', Validators.required),
       UserName: new FormControl('', Validators.required),
-      EmailId: new FormControl('', Validators.required),
+      EmailId: new FormControl('', [Validators.required, Validators.email]),
       Password: new FormControl('', Validators.required),
       PhoneNo: new FormControl('', Validators.required),
     });
   }
 
+  get registerFormControl() {
+    return this.registerForm.controls;
+  }
+
   onSubmit() {
-    this.accountService.register(this.registerForm.value).subscribe(
-      (res) => {
-        if (res) this.router.navigateByUrl('account/login');
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    this.submitted = true;
+
+    if (this.registerForm.valid) {
+      this.accountService.register(this.registerForm.value).subscribe(
+        (res) => {
+          if (res) this.router.navigateByUrl('account/login');
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
   }
 }
