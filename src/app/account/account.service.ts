@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { BehaviorSubject, map } from 'rxjs';
-import { IUser } from '../models/IUser';
+import { IUser } from '../models/user';
 
 @Injectable({
   providedIn: 'root',
@@ -35,7 +35,7 @@ export class AccountService {
       map((user: any): void => {
         if (user) {
           localStorage.setItem('token', user.token);
-          this.currentUserSource.next(user);  
+          this.currentUserSource.next(user);
         }
       })
     );

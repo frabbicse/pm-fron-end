@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AccountService } from '../account/account.service';
-import { IUser } from '../models/IUser';
+import { IUser } from '../models/user';
 
 @Component({
   selector: 'app-nav-bar',
