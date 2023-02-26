@@ -1,5 +1,11 @@
 <div class="row">
-  <div class="" *ngFor="let project of projects">
+  <div id="add_project">
+    <app-create-project></app-create-project>
+  </div>
+</div>
+
+<div class="row">
+  <div id="project_list" class="col-sm-5" *ngFor="let project of projects">
     <app-project [project]="project"></app-project>
   </div>
 </div>

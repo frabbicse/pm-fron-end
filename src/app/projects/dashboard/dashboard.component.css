@@ -1,0 +1,12 @@
+#add_project{
+    padding: 5px;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    float: right;
+    border-radius: .50em;
+    background-color: rgb(217, 194, 238);
+    border-radius: .50em;
+}
+#project_list{
+    margin: 10px;
+}

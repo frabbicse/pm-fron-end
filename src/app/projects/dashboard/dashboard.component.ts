@@ -18,9 +18,7 @@ export class DashboardComponent implements OnInit {
 
   getProjects() {
     this.projectService.projectList().subscribe((resp: any) => {
-      console.log(resp);
-
-      this.projects =resp;
+      this.projects = resp;
     });
   }
 }

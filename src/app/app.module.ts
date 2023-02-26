@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './projects/dashboard/dashboard.component';
 import { LeftNavComponent } from './left-nav/left-nav.component';
 import { ProjectComponent } from './projects/project/project.component';
+import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
+import { CreateProjectComponent } from './projects/create-project/create-project.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,8 +21,16 @@ import { ProjectComponent } from './projects/project/project.component';
     DashboardComponent,
     LeftNavComponent,
     ProjectComponent,
+    ProjectDetailComponent,
+    CreateProjectComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
+  exports: [ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
