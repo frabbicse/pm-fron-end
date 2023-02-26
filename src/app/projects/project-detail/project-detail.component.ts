@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IProject } from 'src/app/models/project';
 import { ITask } from 'src/app/models/task';
 import { ProjectService } from '../project.service';
 
@@ -11,7 +10,7 @@ import { ProjectService } from '../project.service';
 })
 export class ProjectDetailComponent implements OnInit {
   @Input() id!: string;
-  task!: ITask;
+  tasks!: ITask[];
   constructor(
     private projectService: ProjectService,
     private router: Router,
@@ -26,8 +25,8 @@ export class ProjectDetailComponent implements OnInit {
     let id = this.activateRoute.snapshot.paramMap.get('id');
 
     this.projectService.taskList(id).subscribe(
-      (task) => {
-        this.task = task;
+      (tasks:any) => {
+         this.tasks = tasks;
       },
       (error) => {
         console.log(error);

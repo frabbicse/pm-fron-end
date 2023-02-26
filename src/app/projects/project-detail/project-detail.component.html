@@ -3,145 +3,63 @@
     <div class="card">
       <div class="card-header">Featured</div>
       <div class="card-body">
-        <div id="inner-card-body">
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
-          </p>
-        </div>
-      </div>
-      <div class="card-body">
-        <div id="inner-card-body">
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
-          </p>
-        </div>
-      </div>
-      <div class="card-body">
-        <div id="inner-card-body">
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
-          </p>
+        <!--  routerLink="/task-detail/{{ task.id }}" -->
+        <div id="inner-card-body" *ngFor="let task of tasks">
+          <a type="button">
+            <p
+              class="card-text"
+              data-toggle="modal"
+              data-target="#exampleModal"
+            >
+              {{ task.name }}
+            </p>
+          </a>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-header">Featured</div>
-      <div class="card-body">
-        <div id="inner-card-body">
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
-          </p>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <button
+          type="button"
+          class="close btn-xs"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> -->
+      <!-- form -->
+      <!-- [formGroup]="projectForm" (ngSubmit)="onSubmit()" -->
+      <form>
+        <div class="modal-body">
+          <app-task-detail></app-task-detail>
         </div>
-      </div>
-      <div class="card-body">
-        <div id="inner-card-body">
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
-          </p>
-        </div>
-      </div>
-      <div class="card-body">
-        <div id="inner-card-body">
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-header">Featured</div>
-      <div class="card-body">
-        <div id="inner-card-body">
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
-          </p>
-        </div>
-      </div>
-      <div class="card-body">
-        <div id="inner-card-body">
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
-          </p>
-        </div>
-      </div>
-      <div class="card-body">
-        <div id="inner-card-body">
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-header">Featured</div>
-      <div class="card-body">
-        <div id="inner-card-body">
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
-          </p>
-        </div>
-      </div>
-      <div class="card-body">
-        <div id="inner-card-body">
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
-          </p>
-        </div>
-      </div>
-      <div class="card-body">
-        <div id="inner-card-body">
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-header">Featured</div>
-      <div class="card-body">
-        <div id="inner-card-body">
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
-          </p>
-        </div>
-      </div>
-      <div class="card-body">
-        <div id="inner-card-body">
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
-          </p>
-        </div>
-      </div>
-      <div class="card-body">
-        <div id="inner-card-body">
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
-          </p>
-        </div>
-      </div>
+        <!-- <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-secondary"
+      #closebutton
+      data-dismiss="modal"
+    >
+      Close
+    </button>
+    <button type="submit" class="btn btn-primary btn-xs">Create</button>
+  </div> -->
+      </form>
+      <!-- end -->
     </div>
   </div>
 </div>

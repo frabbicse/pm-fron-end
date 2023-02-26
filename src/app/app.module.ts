@@ -12,6 +12,7 @@ import { ProjectComponent } from './projects/project/project.component';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 import { CreateProjectComponent } from './projects/create-project/create-project.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TaskDetailComponent } from './projects/task-detail/task-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProjectComponent,
     ProjectDetailComponent,
     CreateProjectComponent,
+    TaskDetailComponent,
   ],
   imports: [
     BrowserModule,

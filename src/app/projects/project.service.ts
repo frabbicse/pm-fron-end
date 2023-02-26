@@ -54,12 +54,11 @@ export class ProjectService {
     headers = headers.set('Authorization', `Bearer ${token}`);
 
     return this.http
-      .get<any>(this.baseUrl + 'ProjectTask?projectId=' + id, { headers })
+      .get<ITask>(this.baseUrl + 'ProjectTask?projectId=' + id, { headers })
       .pipe(
         map(
           (response) => {
             return response;
-           
           },
           (error: any) => {
             console.log(error);
